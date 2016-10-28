@@ -1,0 +1,8 @@
+# from GitHub, overriding the name and specifying a specific tag
+- src: https://github.com/geerlingguy/ansible-role-nginx
+  version: 1.9.5
+  name: nginx
+
+- src: https://github.com/NBZ4live/ansible-php-fpm
+  version: master
+  name: php-fpm

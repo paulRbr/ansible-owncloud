@@ -1,0 +1,8 @@
+---
+- name: Check existing dhparams
+  stat: path=/etc/ssl/certs/dhparam.pem
+  register: dhparams_file
+
+- name: Generate Diffie-Hellman params
+  command: "openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096"
+  when: not dhparams_file.stat.exists

@@ -1,0 +1,8 @@
+php_fpm_pools:
+  - name: www
+    user: www-data
+    group: www-data
+    listen: /var/run/php5-fpm.sock
+    listen.owner: www-data
+    listen.group: www-data
+    chdir: /

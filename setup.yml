@@ -1,0 +1,15 @@
+---
+- hosts: all
+  remote_user: root
+  roles:
+    - common
+    - role: certbot
+    - role: nginx
+      when: "'webserver' in group_names"
+      tags: [ nginx, webserver ]
+    - role: php-fpm
+      when: "'owncloud' in group_names"
+      tags: [ php-fpm ]
+    - role: owncloud
+      when: "'owncloud' in group_names"
+      tags: [ owncloud ]

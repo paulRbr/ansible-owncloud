@@ -1,0 +1,10 @@
+---
+- name: Install basic programs
+  apt: name={{ item }} state=installed
+  with_items:
+    - htop
+    - nano
+    - less
+    - ntp
+    - ca-certificates
+    - apt-transport-https

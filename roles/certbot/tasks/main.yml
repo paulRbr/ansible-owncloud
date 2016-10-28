@@ -1,0 +1,7 @@
+---
+
+- include: install.yml
+
+- include: get-cert.yml
+
+- include: generate-dh.yml

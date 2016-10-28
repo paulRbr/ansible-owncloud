@@ -1,0 +1,35 @@
+---
+nginx_remove_default_vhost: true
+nginx_vhosts_filename: "owncloud.conf"
+nginx_vhosts:
+  - listen: "80 default_server"
+    server_name: "{{ ansible_host }}"
+    extra_parameters: |
+      listen [::]:80 default_server;
+
+      return 301 https://$host$request_uri;
+  - listen: "443 ssl"
+    server_name: "{{ ansible_host }}"
+    root: "/var/www/owncloud"
+    index: "index.php index.html index.htm"
+    access_log: "/var/log/nginx/owncloud.log"
+    extra_parameters: |
+      listen [::]:443 ssl;
+
+      ssl_certificate /etc/letsencrypt/live/{{ ansible_host }}/fullchain.pem;
+      ssl_certificate_key /etc/letsencrypt/live/{{ ansible_host }}/privkey.pem;
+      ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+      ssl_prefer_server_ciphers on;
+      ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH";
+      ssl_session_cache shared:SSL:10m;
+      ssl_dhparam /etc/ssl/certs/dhparam.pem;
+
+      location ~ \.php(?:$|/) {
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass unix:/var/run/php5-fpm.sock;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_param PATH_INFO $fastcgi_path_info;
+
+            include fastcgi_params;
+      }

@@ -1,7 +1,0 @@
----
-- name: Install git
-  apt: name=git state=installed
-
-- name: Checkout certbot
-  git: repo=https://github.com/certbot/certbot
-       dest=/opt/letsencrypt

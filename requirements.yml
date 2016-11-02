@@ -10,3 +10,7 @@
 - src: https://github.com/ANXS/postgresql
   version: v1.6.2
   name: postgresql
+
+- src: https://github.com/paulrbr/ansible-certbot-role
+  version: master
+  name: certbot

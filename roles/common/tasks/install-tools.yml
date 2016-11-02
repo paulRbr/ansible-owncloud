@@ -8,3 +8,4 @@
     - ntp
     - ca-certificates
     - apt-transport-https
+    - sudo

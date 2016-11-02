@@ -1,0 +1,28 @@
+postgresql_version: 9.4
+postgresql_apt_repository: false
+postgresql_encoding: 'UTF-8'
+postgresql_locale: 'en_US.UTF-8'
+
+postgresql_admin_user: "postgres"
+postgresql_default_auth_method: "trust"
+
+postgresql_cluster_name: "main"
+postgresql_cluster_reset: true
+
+# List of databases to be created
+postgresql_databases:
+  - name: owncloud
+    owner: owncloud
+
+# List of users to be created
+postgresql_users:
+  - name: owncloud
+    pass: "{{ vault_postgresql_owncloud_password }}"
+    encrypted: no
+
+# List of user privileges to be applied (optional)
+postgresql_user_privileges:
+  - name: owncloud
+    db: owncloud
+    priv: "ALL"
+    role_attr_flags: "CREATEDB"

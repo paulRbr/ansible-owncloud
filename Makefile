@@ -1,11 +1,11 @@
 run: ## Run a playbook. E.g. make run playbook=setup
-	ansible-playbook $(playbook).yml
+	ansible-playbook --vault-password-file=pass.sh $(playbook).yml
 
 install: ## Install roles dependencies
 	ansible-galaxy install --roles-path vendor/ -r requirements.yml
 
 debug: ## Debug a host's variable. E.g. debug host=myhost
-	ansible -m debug -a "var=hostvars[inventory_hostname]" -i hosts $(host)
+	ansible --vault-password-file=pass.sh -m debug -a "var=hostvars[inventory_hostname]" -i hosts $(host)
 
 list: ## List hosts inventory
 	cat hosts

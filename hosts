@@ -3,3 +3,6 @@ nuage ansible_host=nuage.bonaud.fr
 
 [webserver]
 nuage ansible_host=nuage.bonaud.fr
+
+[database]
+nuage ansible_host=nuage.bonaud.fr

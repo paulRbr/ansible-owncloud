@@ -10,6 +10,9 @@
     - role: php-fpm
       when: "'owncloud' in group_names"
       tags: [ php-fpm ]
+    - role: postgresql
+      when: "'database' in group_names"
+      tags: [ postgresql ]
     - role: owncloud
       when: "'owncloud' in group_names"
       tags: [ owncloud ]

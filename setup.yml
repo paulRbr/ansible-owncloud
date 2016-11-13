@@ -4,6 +4,8 @@
   roles:
     - common
     - role: certbot
+      when: "'webserver' in group_names"
+      tags: [ nginx, webserver ]
     - role: nginx
       when: "'webserver' in group_names"
       tags: [ nginx, webserver ]

@@ -1,6 +1,10 @@
 ---
 - name: Install basic programs
-  apt: name={{ item }} state=installed
+  apt:
+    name: "{{ item }}"
+    state: installed
+    update_cache: yes
+    cache_valid_time: 86400
   with_items:
     - htop
     - nano

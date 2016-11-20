@@ -1,8 +1,11 @@
+playbook ?= setup
+opts ?= ""
+
 run: ## Run a playbook. E.g. make run playbook=setup
-	ansible-playbook --vault-password-file=pass.sh $(playbook).yml
+	ansible-playbook --vault-password-file=pass.sh $(playbook).yml $(opts)
 
 dry-run: ## Run a playbook in dry run mode. E.g. make dry-run playbook=setup
-	ansible-playbook --vault-password-file=pass.sh --diff --check $(playbook).yml
+	ansible-playbook --vault-password-file=pass.sh --diff --check $(playbook).yml $(opts)
 
 install: ## Install roles dependencies
 	ansible-galaxy install --roles-path vendor/ -r requirements.yml

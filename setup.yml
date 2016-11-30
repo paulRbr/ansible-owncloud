@@ -5,17 +5,17 @@
   roles:
     - common
     - role: certbot
-      when: "'webserver' in group_names"
+      when: "{{ 'webserver' in group_names }}"
       tags: [ nginx, webserver ]
     - role: nginx
-      when: "'webserver' in group_names"
+      when: "{{ 'webserver' in group_names }}"
       tags: [ nginx, webserver ]
     - role: php-fpm
-      when: "'owncloud' in group_names"
+      when: "{{ 'owncloud' in group_names }}"
       tags: [ php-fpm ]
     - role: postgresql
-      when: "'database' in group_names"
-      tags: [ postgresql ]
+      when: "{{ 'database' in group_names }}"
+      tags: [ postgresql, database ]
     - role: owncloud
-      when: "'owncloud' in group_names"
+      when: "{{ 'owncloud' in group_names }}"
       tags: [ owncloud ]

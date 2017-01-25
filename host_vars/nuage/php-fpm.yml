@@ -6,3 +6,5 @@ php_fpm_pools:
     listen.owner: www-data
     listen.group: www-data
     chdir: /
+
+php_fpm_version: 5

@@ -1,0 +1,4 @@
+---
+certbot_admin_email: "paul+letsencrypt@bonaud.fr"
+certbot_www_dir: "/var/www/owncloud"
+certbot_auto_renew: true

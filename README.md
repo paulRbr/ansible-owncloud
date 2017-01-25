@@ -20,7 +20,7 @@ Roles are all taken from Ansible's public galaxy repositories. They are describe
 Install dependencies by
 
     make install
-  
+
 ## Prepare
 
 You will need to change mainly two things:
@@ -35,11 +35,11 @@ edit hosts
 
 ## Secrets
 
-I personnaly manage secrets thanks to [`pass`](https://www.passwordstore.org/) so the password is automatically taken from my store using the `pass.sh` script.
+I personnaly manage secrets thanks to [`pass`](https://www.passwordstore.org/) so the password is automatically taken from my store using the `pass-hosts.sh` script.
 
 In order to vault your secrets you will thus need to adapt this file to output your vault passphrase
 
-    edit pass.sh
+    edit pass-hosts.sh
 
 ## Run
 

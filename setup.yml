@@ -4,10 +4,10 @@
   become: yes
   roles:
     - common
-    - role: certbot
+    - role: nginx
       when: "{{ 'webserver' in group_names }}"
       tags: [ nginx, webserver ]
-    - role: nginx
+    - role: certbot
       when: "{{ 'webserver' in group_names }}"
       tags: [ nginx, webserver ]
     - role: php-fpm
